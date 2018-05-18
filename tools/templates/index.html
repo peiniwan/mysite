@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>计算器</title>
+</head>
+<body>
+<form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
