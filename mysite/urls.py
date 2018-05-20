@@ -19,9 +19,12 @@ from learn import views as learn_views  # new
 from calc import views as calc_views
 from people import views as people_views
 from tools import views as tools_views
+from meizi import views as meizi_views
 
 urlpatterns = [
-    url(r'^', include('snippets.urls')),
+    url(r'^getlispic', meizi_views.getlispic, name='home'),
+    url(r'^getlist', meizi_views.getlist, name='home'),
+    # url(r'^', include('snippets.urls')),
     url(r'^$', tools_views.index, name='home'),
     url(r'^$', people_views.create, name='home'),
     url(r'^$', learn_views.home, name='home'),
