@@ -17,7 +17,7 @@ from meizi.serializers import MeiziSerializer, ListSerialize, ListPicSerialize
 @api_view(['GET'])
 def getlist(request, format=None):
     if request.method == 'GET':
-        meizis = Meizis.objects.all()
+        meizis = Meizis.objects.values('mid','title').distinct()
         serializer = MeiziSerializer(meizis, many=True)
         # return Response(serializer.data)
 
@@ -29,6 +29,7 @@ def getlist(request, format=None):
         page_list = obj.paginate_queryset(meizis, request)
         # 对数据序列化 普通序列化 显示的只是数据
         ser = ListSerialize(instance=page_list, many=True)  # 多个many=True # instance：把对象序列化
+
         response = obj.get_paginated_response(ser.data)
         return response
 

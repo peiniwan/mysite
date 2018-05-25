@@ -22,7 +22,7 @@ from tools import views as tools_views
 from meizi import views as meizi_views
 
 urlpatterns = [
-    url(r'^getlispic', meizi_views.getlispic, name='home'),
+    url(r'^getlistpic', meizi_views.getlispic, name='home'),
     url(r'^getlist', meizi_views.getlist, name='home'),
     # url(r'^', include('snippets.urls')),
     url(r'^$', tools_views.index, name='home'),
